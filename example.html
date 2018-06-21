@@ -1,9 +1,68 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
-<title> Example test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.accordion {
+    background-color: #ddd;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #02f80a;
+    color: white;
+    cursor: pointer;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+</style>
 </head>
 <body>
-Lesson-1:first add HTML
+<button class="accordion">Path-1</button>
+<div class="panel">
+  <p>First you need to create file with html extension (.html)</p>
+</div>
+
+<button class="accordion">Path-2</button>
+<div class="panel">
+  <p>Second you need main tags (<html>, <head>... etc)</p>
+</div>
+
+<button class="accordion">Path-3</button>
+<div class="panel">
+  <p>Third you have to put simple outputs (<p>Hello!</p>... etc)</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
 </body>
 </html>
