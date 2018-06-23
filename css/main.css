@@ -1,3 +1,7 @@
+body {
+      background-repeat: no-repeat;
+      background-size: 1350px 750px;
+}
 button {
     background-color: #ddd;
     border: none;
