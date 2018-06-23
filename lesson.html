@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="lessonApp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-animate.min.js"></script>
+    <script src="js/lessonCtrl.js"></script>
+    <link rel="stylesheet" href="css/lesson.css">
+</head>
+<body>
+    <div ng-view></div>
+    <script>
+        var app = angular.module("lessonApp", ["ngRoute"]);
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when("/1", {
+                templateUrl : "lessons/1.html"
+            })
+            .when("/2", {
+                templateUrl : "lessons/2.html"
+            })
+            .otherwise({
+                redirectTo: function() {
+                    document.location.href = "/menu.html"
+                }
+            });
+        });
+        app.controller('lessonCtrl', ['$scope', lessonCtrl]);
+    </script>
+</body>
+</html>
