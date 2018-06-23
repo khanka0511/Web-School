@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/lesson.css">
 </head>
 <body>
-    <div ng-view></div>
+    <div ng-view ng-controller="lessonCtrl"></div>
     <script>
         var app = angular.module("lessonApp", ["ngRoute"]);
         app.config(function($routeProvider) {
