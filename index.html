@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="startApp">
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.min.js"></script>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/intro.css">
+    <script>
+        var app = angular.module("startApp", ["ngRoute"]);
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when("/intro", {
+                templateUrl : "pages/intro.html"
+            })
+            .otherwise({
+                templateUrl : "pages/start.html"
+            });
+        });
+        app.controller('lessonCtrl', ['$scope', lessonCtrl]);
+    </script>
 </head>
-<body>
-    <div class="background">
-      <div class="transbox">
-        <p>Welcome to our page. Here you will learn how to create an webpage step by step. 
-        Later we'll add charts and interesting information about programming languages.
-        Click on the button below.</p>
-        <center><a href="menu.html"><button>Lessons</button></a></center>
-      </div>
-    </div>
+<body ng-view>
 </body>
 </html>
