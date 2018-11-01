@@ -1,0 +1,30 @@
+<html ng-app="programApp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular-route.min.js"></script>
+    <script src="js/programCtrl.js"></script>
+    <link rel="stylesheet" href="css/lesson.css">
+</head>
+<body>
+    <div ng-view ng-controller="programCtrl"></div>
+    <script>
+        var app = angular.module("programApp", ["ngRoute"]);
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when("/1", {
+                templateUrl : "programs/1.html"
+            })
+            .when("/2", {
+                templateUrl : "programs/2.html"
+            })
+            .otherwise({
+                redirectTo: function() {
+                    document.location.href = "/programs/programs.html"
+                }
+            });
+        });
+        app.controller('programCtrl', ['$scope', programCtrl]);
+    </script>
+</body>
+</html>
